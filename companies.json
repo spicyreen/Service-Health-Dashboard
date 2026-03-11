@@ -1,1 +1,26 @@
-
+[
+  {
+    "company": "Pure Storage",
+    "sla": 96,
+    "incident": 88,
+    "csat": 92,
+    "adoption": 85,
+    "escalation": 90
+  },
+  {
+    "company": "NetApp",
+    "sla": 94,
+    "incident": 84,
+    "csat": 89,
+    "adoption": 81,
+    "escalation": 87
+  },
+  {
+    "company": "Dell Technologies",
+    "sla": 91,
+    "incident": 82,
+    "csat": 86,
+    "adoption": 80,
+    "escalation": 84
+  }
+]
