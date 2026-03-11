@@ -14,12 +14,29 @@ body {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
-input {
-  width: 65%;
+h1 {
+  margin-top: 0;
+}
+
+.controls {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
   padding: 12px;
-  margin-right: 8px;
+  margin-bottom: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  background: white;
+  font-size: 16px;
 }
 
 button {
@@ -27,6 +44,7 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .card {
@@ -34,6 +52,7 @@ button {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 12px;
+  background: #fafafa;
 }
 
 .hidden {
@@ -43,6 +62,7 @@ button {
 .error {
   margin-top: 20px;
   color: #b00020;
+  font-weight: bold;
 }
 
 #healthStatus {
