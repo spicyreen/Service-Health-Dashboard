@@ -1,3 +1,5 @@
+let companiesData = [];
+
 async function loadCSV() {
   const response = await fetch("enterprise_service_accounts.csv");
   if (!response.ok) {
@@ -10,10 +12,10 @@ async function loadCSV() {
 
 function parseCSV(csvText) {
   const lines = csvText.trim().split("\n");
-  const headers = lines[0].split(",").map(h => h.trim());
+  const headers = lines[0].split(",").map(header => header.trim());
 
-  const data = lines.slice(1).map(line => {
-    const values = line.split(",").map(v => v.trim());
+  return lines.slice(1).map(line => {
+    const values = line.split(",").map(value => value.trim());
     const row = {};
 
     headers.forEach((header, index) => {
@@ -22,8 +24,17 @@ function parseCSV(csvText) {
 
     return row;
   });
+}
 
-  return data;
+function populateDropdown(companies) {
+  const companySelect = document.getElementById("companySelect");
+
+  companies.forEach(company => {
+    const option = document.createElement("option");
+    option.value = company.Company;
+    option.textContent = company.Company;
+    companySelect.appendChild(option);
+  });
 }
 
 function calculateHealthScore(company) {
@@ -46,9 +57,13 @@ function calculateHealthScore(company) {
 function getHealthStatus(score) {
   const numericScore = Number(score);
 
-  if (numericScore >= 90) return "Healthy";
-  if (numericScore >= 75) return "Watch";
-  return "At Risk";
+  if (numericScore >= 90) {
+    return "Healthy";
+  } else if (numericScore >= 75) {
+    return "Watch";
+  } else {
+    return "At Risk";
+  }
 }
 
 function formatCurrency(value) {
@@ -86,28 +101,33 @@ function showError(message) {
   document.getElementById("result").classList.add("hidden");
 }
 
-document.getElementById("searchBtn").addEventListener("click", async () => {
-  const input = document.getElementById("companyInput").value.trim().toLowerCase();
-
-  if (!input) {
-    showError("Please enter a company name.");
-    return;
-  }
-
+async function initializeDashboard() {
   try {
-    const companies = await loadCSV();
-
-    const company = companies.find(c =>
-      c.Company.toLowerCase().includes(input)
-    );
-
-    if (!company) {
-      showError("Company not found. Try Pure Storage, NetApp, or Dell Technologies.");
-      return;
-    }
-
-    showResult(company);
+    companiesData = await loadCSV();
+    populateDropdown(companiesData);
   } catch (error) {
     showError(error.message);
   }
+}
+
+document.getElementById("searchBtn").addEventListener("click", () => {
+  const selectedCompanyName = document.getElementById("companySelect").value;
+
+  if (!selectedCompanyName) {
+    showError("Please select a company.");
+    return;
+  }
+
+  const company = companiesData.find(
+    c => c.Company === selectedCompanyName
+  );
+
+  if (!company) {
+    showError("Company not found.");
+    return;
+  }
+
+  showResult(company);
 });
+
+initializeDashboard();
