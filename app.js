@@ -43,13 +43,25 @@ function calculateHealthScore(company) {
   return score.toFixed(1);
 }
 
+function getHealthStatus(score) {
+  const numericScore = Number(score);
+
+  if (numericScore >= 90) return "Healthy";
+  if (numericScore >= 75) return "Watch";
+  return "At Risk";
+}
+
 function formatCurrency(value) {
   return Number(value).toLocaleString();
 }
 
 function showResult(company) {
+  const healthScore = calculateHealthScore(company);
+  const healthStatus = getHealthStatus(healthScore);
+
   document.getElementById("companyName").textContent = company.Company;
-  document.getElementById("healthScore").textContent = calculateHealthScore(company);
+  document.getElementById("healthScore").textContent = healthScore;
+  document.getElementById("healthStatus").textContent = healthStatus;
   document.getElementById("region").textContent = company.Region;
   document.getElementById("accountTier").textContent = company.Account_Tier;
   document.getElementById("contractValue").textContent = formatCurrency(company.Contract_Value_USD);
@@ -85,7 +97,9 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
   try {
     const companies = await loadCSV();
 
-    const company = companies.find(c => c.Company.toLowerCase() === input);
+    const company = companies.find(c =>
+      c.Company.toLowerCase().includes(input)
+    );
 
     if (!company) {
       showError("Company not found. Try Pure Storage, NetApp, or Dell Technologies.");
