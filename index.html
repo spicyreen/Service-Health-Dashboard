@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Health Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Service Health Dashboard</h1>
+    <p>Enter a company name to calculate its Customer Service Health Score.</p>
 
+    <input type="text" id="companyInput" placeholder="Enter company name" />
+    <button id="searchBtn">Calculate Score</button>
+
+    <div id="result" class="card hidden">
+      <h2 id="companyName"></h2>
+      <p><strong>Health Score:</strong> <span id="healthScore"></span></p>
+      <ul>
+        <li>SLA Performance (30%): <span id="sla"></span></li>
+        <li>Incident Resolution Speed (25%): <span id="incident"></span></li>
+        <li>Customer Satisfaction (20%): <span id="csat"></span></li>
+        <li>Product Adoption (15%): <span id="adoption"></span></li>
+        <li>Escalation Frequency (10%): <span id="escalation"></span></li>
+      </ul>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
