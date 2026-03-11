@@ -1,28 +1,40 @@
-# Hi, I'm Shereen Roche
+# Service Health Dashboard
 
-Customer Success and Service Delivery leader with 10+ years of experience across enterprise SaaS, IT modernization, and cross-functional program execution.
+This project demonstrates how a Service Account Manager can track service performance and customer health across enterprise accounts.
 
-## What I focus on
-- Service account management
-- Customer health and adoption
-- Executive stakeholder communication
-- Escalation management
-- ITIL-based service improvement
-- Cross-functional project leadership
+## Customer Service Health Score
 
-## Featured Project
-### Service Health Dashboard
-A simple dashboard concept that tracks:
-- SLA Performance
-- Incident Resolution Speed
-- Customer Satisfaction
-- Product Adoption
-- Escalation Frequency
+**Formula**
 
-## Background
-- ITIL certified through Accenture
-- Enterprise SaaS and consulting experience
-- Strong customer advocacy and operational delivery focus
+Customer Service Health Score =
+- SLA Performance (30%)
+- Incident Resolution Speed (25%)
+- Customer Satisfaction (20%)
+- Product Adoption (15%)
+- Escalation Frequency (10%)
 
-## Connect with me
-- LinkedIn: [https://www.linkedin.com/in/shereen-roche-7830752b/]
+## Why these metrics matter
+This score combines service reliability, issue resolution, customer sentiment, adoption, and account stability into one health view.
+
+## Example dashboard metrics
+- SLA Performance: 96%
+- Incident Resolution Speed: 88%
+- Customer Satisfaction: 92%
+- Product Adoption: 80%
+- Escalation Frequency: 90%
+
+## Weighted Score Example
+- SLA Performance: 96 × 0.30 = 28.8
+- Incident Resolution Speed: 88 × 0.25 = 22.0
+- Customer Satisfaction: 92 × 0.20 = 18.4
+- Product Adoption: 80 × 0.15 = 12.0
+- Escalation Frequency: 90 × 0.10 = 9.0
+
+**Total Customer Service Health Score = 90.2 / 100**
+
+## Use cases
+- Executive service reviews
+- Risk identification
+- Escalation tracking
+- Quarterly business reviews
+- Customer success and service account planning
