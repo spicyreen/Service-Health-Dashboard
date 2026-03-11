@@ -25,4 +25,4 @@ A simple dashboard concept that tracks:
 - Strong customer advocacy and operational delivery focus
 
 ## Connect with me
-- LinkedIn: [(https://www.linkedin.com/in/shereen-roche-7830752b/)]
+- LinkedIn: [https://www.linkedin.com/in/shereen-roche-7830752b/]
