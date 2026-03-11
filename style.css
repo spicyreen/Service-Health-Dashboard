@@ -44,3 +44,7 @@ button {
   margin-top: 20px;
   color: #b00020;
 }
+
+#healthStatus {
+  font-weight: bold;
+}
